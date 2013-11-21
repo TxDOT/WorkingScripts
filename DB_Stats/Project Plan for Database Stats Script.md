@@ -16,7 +16,7 @@ To track edits and changes to Tarhe and Comanche. This data will be used for int
     * Possible Enhancement - Write stats to html/ markdown document
 
 ###__Progress Tracking__
-[Tello](https://trello.com/)
+[Tello](https://trello.com/b/40OTOyEa/side-projects)
 
 ###__Project Start Date__
 November 20th, 2013
