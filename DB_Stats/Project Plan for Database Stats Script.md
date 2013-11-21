@@ -1,4 +1,3 @@
-
 ## Project Plan for Database Stats Script
 ---
 
@@ -17,7 +16,7 @@ To track edits and changes to Tarhe and Comanche. This data will be used for int
     * Possible Enhancement - Write stats to html/ markdown document
 
 ###__Progress Tracking__
-[Tello](www.Trello.com)
+[Tello](https://trello.com/)
 
 ###__Project Start Date__
 November 20th, 2013
