@@ -1,0 +1,15 @@
+##TPP Data Management Default Software
+___
+
+* [NotePad++](http://notepad-plus-plus.org/ "NotePad++ Download "NotePad++ Download")
+* [IIS](http://technet.microsoft.com/en-us/library/cc725762.aspx "Install Instructions")
+* [PyCharm - Community Edition](http://www.jetbrains.com/pycharm/download/ "PyCharm Download")
+* [PyScripter](https://code.google.com/p/pyscripter/downloads/list "PyScripter Download")
+* [SQL Server Management Studio](http://www.microsoft.com/en-in/download/details.aspx?id=29062 "SQLServer Management Studio")
+* [SQL Developer](http://www.oracle.com/technetwork/developer-tools/sql-developer/downloads/index.html "SQL Developer Download")
+* [Boundless OpenGeo Suite](http://boundlessgeo.com/solutions/opengeo-suite/download/ "Boundless OpenGeo Suite")
+    __OR__ [PostgreSQL](http://www.postgresql.org/download/ "PostgreSQL") __*AND*__ [PostGIS](http://postgis.net/install "PostGIS Extension")
+* [NetBeans](https://netbeans.org/downloads/ "NetBeans")
+* [Aptana Studio 3](http://www.aptana.com/ "Aptana Studio Download")
+* [Oracle Express](http://www.oracle.com/technetwork/database/database-technologies/express-edition/downloads/index.html "Oracle 11g Download")
+* [PDF-XChange Viewer](http://www.tracker-software.com/product/downloads "PDF-XChange Viewer")
