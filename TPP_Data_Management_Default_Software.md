@@ -12,4 +12,9 @@
 * [Aptana Studio 3](http://www.aptana.com/ "Aptana Studio Download")
 * [Oracle Express](http://www.oracle.com/technetwork/database/database-technologies/express-edition/downloads/index.html "Oracle 11g Download")
 * [PDF-XChange Viewer](http://www.tracker-software.com/product/downloads "PDF-XChange Viewer")
+<<<<<<< HEAD
 * [MarkdownPad2](http://markdownpad.com/download.html "MarkdownPad2 Download")
+=======
+* [git](http://git-scm.com/download/win "git download")
+* [GitHub for Windows](http://windows.github.com/ "GitHub Application Download")
+>>>>>>> a75a90d68572a986699b6697211288f0d473e450
