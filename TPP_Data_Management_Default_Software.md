@@ -12,3 +12,5 @@
 * [Aptana Studio 3](http://www.aptana.com/ "Aptana Studio Download")
 * [Oracle Express](http://www.oracle.com/technetwork/database/database-technologies/express-edition/downloads/index.html "Oracle 11g Download")
 * [PDF-XChange Viewer](http://www.tracker-software.com/product/downloads "PDF-XChange Viewer")
+* [git](http://git-scm.com/download/win "git download")
+* [GitHub for Windows](http://windows.github.com/ "GitHub Application Download")
