@@ -1,5 +1,4 @@
 ##TPP Data Management Default Software
-___
 
 * [NotePad++](http://notepad-plus-plus.org/ "NotePad++ Download "NotePad++ Download")
 * [IIS](http://technet.microsoft.com/en-us/library/cc725762.aspx "Install Instructions")
@@ -13,3 +12,4 @@ ___
 * [Aptana Studio 3](http://www.aptana.com/ "Aptana Studio Download")
 * [Oracle Express](http://www.oracle.com/technetwork/database/database-technologies/express-edition/downloads/index.html "Oracle 11g Download")
 * [PDF-XChange Viewer](http://www.tracker-software.com/product/downloads "PDF-XChange Viewer")
+* [MarkdownPad2](http://markdownpad.com/download.html "MarkdownPad2 Download")
