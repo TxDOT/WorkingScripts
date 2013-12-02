@@ -1,5 +1,4 @@
 ##TPP Data Management Default Software
-___
 
 * [NotePad++](http://notepad-plus-plus.org/ "NotePad++ Download "NotePad++ Download")
 * [IIS](http://technet.microsoft.com/en-us/library/cc725762.aspx "Install Instructions")
