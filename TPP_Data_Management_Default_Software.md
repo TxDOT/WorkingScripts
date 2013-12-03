@@ -1,5 +1,6 @@
 ##TPP Data Management Default Software
 
+#### In all cases, download the latest, free version.
 * [NotePad++](http://notepad-plus-plus.org/ "NotePad++ Download "NotePad++ Download")
 * [IIS](http://technet.microsoft.com/en-us/library/cc725762.aspx "Install Instructions")
 * [PyCharm - Community Edition](http://www.jetbrains.com/pycharm/download/ "PyCharm Download")
