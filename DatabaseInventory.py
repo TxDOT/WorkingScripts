@@ -72,10 +72,18 @@ def writeOutputFile(db_dict):
     counter = 0
     for k,v in db_dict.iteritems():
         obj_name = k.split("\\")[2:3]
+        attribute_dict = v
+        print attribute_dict
         if obj_name not in index_list:
             print "obj_name: {0}".format(obj_name)
             index_list.append(obj_name)
-            index_sheet.write(counter, 0,str(obj_name))
+            index_sheet.write(counter, 0, (str(obj_name).split(".")[2]).strip("]'"))
+            if attribute_dict['object_type'] == "feature class":
+                index_sheet.write(counter, 1, attribute_dict['shape_type'])
+                index_sheet.write(counter, 2, attribute_dict['feature_count'])
+            else:
+                index_sheet.write(counter, 1, "Table")
+                index_sheet.write(counter, 2, attribute_dict['row_count'])
             counter += 1
 
     book.save("C:\\Users\\DHICKMA\\Dropbox\\testing.xls")
