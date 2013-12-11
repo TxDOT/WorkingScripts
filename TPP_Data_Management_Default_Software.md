@@ -18,3 +18,4 @@
 * [GitHub for Windows](http://windows.github.com/ "GitHub Application Download")
 * [7-Zip](http://www.7-zip.org/ "7-ZIp Installer") __OR__ [PeaZip](http://peazip.sourceforge.net/peazip-64bit.html "PeaZip Installer")
 * [HTML Kit](http://www.htmlkit.com/ "HTML Kit Download")
+* [Silverlight](http://www.microsoft.com/silverlight/ "Silverlight 5 Download")
