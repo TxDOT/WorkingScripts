@@ -8,61 +8,72 @@ from arcpy import env
 from xlwt import Workbook, easyxf
 
 
-def gatherDbStats(database_name, db_source):
+def gatherDbStats(database_name, db_source, features=True, tables=True):
     env.workspace = db_source
     db_Dict = {}
     dataset_list = arcpy.ListDatasets()
     table_list = arcpy.ListTables()
     for table in table_list:
-        count = int(arcpy.GetCount_management(table).getOutput(0))
-        fields = arcpy.ListFields(str(table))
-        field_list = []
-        for field in fields:
-            field_list.append(str(field.name))
-        desc = arcpy.Describe(table)
-        print "Table: {0}".format(desc.baseName.split(".")[1])
-        print "...Row Count: {0}".format(count)
-        db_Dict[str(env.workspace) + os.sep + str(table)] = {"path": "Tarhe-Home", "name": table,
-                                                             "object_type": "table", "row_count": count,
-                                                             "fields": field_list}
-        print db_Dict
+        if tables is True:
+            count = int(arcpy.GetCount_management(table).getOutput(0))
+            fields = arcpy.ListFields(str(table))
+            field_list = []
+            for field in fields:
+                field_list.append(str(field.name))
+            desc = arcpy.Describe(table)
+            print "Table: {0}".format(desc.baseName.split(".")[1])
+            print "...Row Count: {0}".format(count)
+            db_Dict[str(env.workspace) + os.sep + str(table)] = {"path": "Tarhe-Home", "name": table,
+                                                                 "object_type": "table", "row_count": count,
+                                                                 "fields": field_list}
+            print db_Dict
+        else:
+            pass
+
     for dataset in dataset_list:
         print "Dataset: {0}".format(dataset.split(".")[0])
         env.workspace = db_source + os.sep + dataset
         feature_list = arcpy.ListFeatureClasses()
         ds_table_list = arcpy.ListTables()
         for fc in feature_list:
-            count = int(arcpy.GetCount_management(fc).getOutput(0))
-            fields = arcpy.ListFields(fc)
-            field_list = []
-            for field in fields:
-                field_list.append(str(field.name))
-            desc = arcpy.Describe(fc)
-            shape_type = str(desc.shapeType)
-            print "...Feature Class: {0}".format(desc.baseName.split(".")[1])
-            print "......Feature Type: {0}".format(desc.featureType)
-            print "......Shape Type: {0}".format(desc.shapeType)
-            print "......Feature Count: {0}".format(count)
-            print "......Spatial Index: {0}".format(desc.hasSpatialIndex)
-            print "......Measures: {0}".format(desc.hasM)
-            print "Workspace: {2} Dataset: {0} FC: {1}".format(dataset, fc, env.workspace)
-            db_Dict[str(env.workspace) + os.sep + str(fc)] = {"path": dataset, "name": fc,
-                                                              "object_type": "feature class", "shape_type": shape_type,
-                                                              "feature_count": count, "fields": field_list}
-            print db_Dict
+            if features is True:
+                count = int(arcpy.GetCount_management(fc).getOutput(0))
+                fields = arcpy.ListFields(fc)
+                field_list = []
+                for field in fields:
+                    field_list.append(str(field.name))
+                desc = arcpy.Describe(fc)
+                shape_type = str(desc.shapeType)
+                print "...Feature Class: {0}".format(desc.baseName.split(".")[1])
+                print "......Feature Type: {0}".format(desc.featureType)
+                print "......Shape Type: {0}".format(desc.shapeType)
+                print "......Feature Count: {0}".format(count)
+                print "......Spatial Index: {0}".format(desc.hasSpatialIndex)
+                print "......Measures: {0}".format(desc.hasM)
+                print "Workspace: {2} Dataset: {0} FC: {1}".format(dataset, fc, env.workspace)
+                db_Dict[str(env.workspace) + os.sep + str(fc)] = {"path": dataset, "name": fc,
+                                                                  "object_type": "feature class",
+                                                                  "shape_type": shape_type,
+                                                                  "feature_count": count, "fields": field_list}
+                print db_Dict
+            else:
+                pass
         for ds_table in ds_table_list:
-            count = int(arcpy.GetCount_management(ds_table).getOutput(0))
-            fields = arcpy.ListFields(str(ds_table))
-            field_list = []
-            for field in fields:
-                field_list.append(str(field.name))
-            desc = arcpy.Describe(ds_table)
-            print "...Table: {0}".format(desc.baseName.split(".")[2])
-            print "......Row Count: {0}".format(count)
-            db_Dict[str(env.workspace) + os.sep + str(ds_table)] = {"path": dataset, "name": ds_table,
-                                                                    "object_type": "table", "row_count": count,
-                                                                    "fields": field_list}
-            print db_Dict
+            if tables is True:
+                count = int(arcpy.GetCount_management(ds_table).getOutput(0))
+                fields = arcpy.ListFields(str(ds_table))
+                field_list = []
+                for field in fields:
+                    field_list.append(str(field.name))
+                desc = arcpy.Describe(ds_table)
+                print "...Table: {0}".format(desc.baseName.split(".")[2])
+                print "......Row Count: {0}".format(count)
+                db_Dict[str(env.workspace) + os.sep + str(ds_table)] = {"path": dataset, "name": ds_table,
+                                                                        "object_type": "table", "row_count": count,
+                                                                        "fields": field_list}
+                print db_Dict
+            else:
+                pass
     writeOutputFile(db_Dict)
 
 
@@ -128,4 +139,4 @@ def writeOutputFile(db_dict):
     book.save("C:\\Users\\DHICKMA\\Dropbox\\testing2.xls")
 
 
-gatherDbStats("Tarhe", "Database Connections\\Connection to Tarhe.sde")
+gatherDbStats("Tarhe", "Database Connections\\Tarhe.sde", True, False)
