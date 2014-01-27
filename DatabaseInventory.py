@@ -1,13 +1,12 @@
-'''
-Created by David Hickman
-david.hickman [@] txdot.gov
-'''
+# Created by David Hickman
+# david.hickman [@] txdot.gov
+
+import os
 
 import arcpy
 from arcpy import env
-import os
 from xlwt import Workbook, easyxf
-from xlrd import open_workbook,cellname
+
 
 def gatherDbStats(database_name, db_source):
     env.workspace = db_source
@@ -23,7 +22,9 @@ def gatherDbStats(database_name, db_source):
         desc = arcpy.Describe(table)
         print "Table: {0}".format(desc.baseName.split(".")[1])
         print "...Row Count: {0}".format(count)
-        db_Dict[str(env.workspace) + os.sep + str(table)] = {"path": "Tarhe-Home", "name": table, "object_type": "table", "row_count": count, "fields": field_list}
+        db_Dict[str(env.workspace) + os.sep + str(table)] = {"path": "Tarhe-Home", "name": table,
+                                                             "object_type": "table", "row_count": count,
+                                                             "fields": field_list}
         print db_Dict
     for dataset in dataset_list:
         print "Dataset: {0}".format(dataset.split(".")[0])
@@ -45,7 +46,9 @@ def gatherDbStats(database_name, db_source):
             print "......Spatial Index: {0}".format(desc.hasSpatialIndex)
             print "......Measures: {0}".format(desc.hasM)
             print "Workspace: {2} Dataset: {0} FC: {1}".format(dataset, fc, env.workspace)
-            db_Dict[str(env.workspace) + os.sep + str(fc)] = {"path": dataset, "name": fc, "object_type": "feature class", "shape_type": shape_type, "feature_count": count, "fields": field_list}
+            db_Dict[str(env.workspace) + os.sep + str(fc)] = {"path": dataset, "name": fc,
+                                                              "object_type": "feature class", "shape_type": shape_type,
+                                                              "feature_count": count, "fields": field_list}
             print db_Dict
         for ds_table in ds_table_list:
             count = int(arcpy.GetCount_management(ds_table).getOutput(0))
@@ -56,9 +59,12 @@ def gatherDbStats(database_name, db_source):
             desc = arcpy.Describe(ds_table)
             print "...Table: {0}".format(desc.baseName.split(".")[2])
             print "......Row Count: {0}".format(count)
-            db_Dict[str(env.workspace) + os.sep + str(ds_table)] = {"path":dataset, "name": ds_table, "object_type": "table", "row_count": count, "fields": field_list}
+            db_Dict[str(env.workspace) + os.sep + str(ds_table)] = {"path": dataset, "name": ds_table,
+                                                                    "object_type": "table", "row_count": count,
+                                                                    "fields": field_list}
             print db_Dict
     writeOutputFile(db_Dict)
+
 
 def writeOutputFile(db_dict):
     book = Workbook()
@@ -101,7 +107,7 @@ def writeOutputFile(db_dict):
                           'pattern: pattern solid_fill, back_colour: ice_blue'
                       ))
     counter = 1
-    for k,v in db_dict.iteritems():
+    for k, v in db_dict.iteritems():
         obj_name = k.split("\\")[2:3]
         attribute_dict = v
         print attribute_dict
@@ -119,6 +125,7 @@ def writeOutputFile(db_dict):
                 index_sheet.write(counter, 3, attribute_dict['row_count'])
             counter += 1
 
-    book.save("C:\\Users\\JKLEINE\\Dropbox\\testing2.xls")
+    book.save("C:\\Users\\DHICKMA\\Dropbox\\testing2.xls")
+
 
 gatherDbStats("Tarhe", "Database Connections\\Connection to Tarhe.sde")
